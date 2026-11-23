@@ -35,6 +35,13 @@ nav .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:12px m
 nav .links{display:flex;gap:18px;flex-wrap:wrap}
 nav .links a{font-size:14px;text-decoration:none;color:var(--soft);padding:10px 0}
 nav .links a:hover{color:var(--ink)}
+.dd{position:relative}
+.ddb{font:400 14px Inter,sans-serif;background:none;border:0;color:var(--soft);padding:10px 0;cursor:pointer}
+.ddb:hover{color:var(--ink)}
+.menu{display:none;position:absolute;top:100%;left:-12px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:6px 0;min-width:190px;box-shadow:0 8px 24px rgba(27,42,74,.12);z-index:10}
+.dd:hover .menu,.dd:focus-within .menu,.dd.open .menu{display:block}
+nav .links .menu a{display:block;padding:10px 16px}
+
 .lang{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .lang button{font:500 13px Inter,sans-serif;background:none;border:0;color:var(--soft);padding:0 12px;min-height:36px;cursor:pointer}
 .lang button[aria-pressed=true]{background:var(--navy);color:#fff}
@@ -83,12 +90,18 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 <div class="wrap">
 <a class="brand" href="#top">LOGOS<b>TICS</b></a>
 <div class="links">
+<div class="dd">
+<button type="button" class="ddb" aria-expanded="false" aria-haspopup="true"><span class="tr">Hakkımızda</span><span class="en">About us</span> <span aria-hidden="true">▾</span></button>
+<div class="menu">
+<a href="who-we-are.html"><span class="tr">Biz kimiz</span><span class="en">Who we are</span></a>
+<a href="#iletisim"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+</div>
+</div>
 <a href="#hizmetler"><span class="tr">Hizmetler</span><span class="en">Services</span></a>
 <a href="#egitim"><span class="tr">Eğitim</span><span class="en">Training</span></a>
 <a href="#surec"><span class="tr">Çalışma modeli</span><span class="en">Engagement model</span></a>
 <a href="#yaklasim"><span class="tr">Yaklaşım</span><span class="en">Approach</span></a>
-<a href="#ozgecmis"><span class="tr">Özgeçmiş</span><span class="en">CV</span></a>
-<a href="#iletisim"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+<a href="insights.html"><span class="tr">Yazılar</span><span class="en">Insights</span></a>
 </div>
 <div class="lang" role="group" aria-label="Dil / Language">
 <button type="button" data-l="en" aria-pressed="true">EN</button>
@@ -115,7 +128,7 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 <div><h3><span class="tr">Organizasyon ve yönetişim</span><span class="en">Organisation and governance</span></h3>
 <p><span class="tr">Lojistik ve tedarik zinciri fonksiyonunun tasarımı: yapı, roller, karar yetkileri, yetkinlik gelişimi ve yedekleme planlaması.</span><span class="en">Design of the logistics and supply chain function: structure, roles, decision rights, capability development and succession planning.</span></p></div>
 <div><h3><span class="tr">Ağ ve taşıma modu stratejisi</span><span class="en">Network and modal strategy</span></h3>
-<p><span class="tr">Deniz, hava, karayolu ve demiryolu dengesinin optimizasyonu, ticaret hatlarının ve Orta Koridor dahil alternatif koridorların değerlendirilmesi, tedarik sürekliliğinin güvence altına alınması.</span><span class="en">Optimising the modal mix across ocean, air, road and rail, evaluating trade lanes and alternative corridors including the Middle Corridor, and safeguarding continuity of supply.</span></p></div>
+<p><span class="tr">Deniz, hava, karayolu ve demiryolu dengesinin optimizasyonu, ticaret hatlarının ve alternatif koridorların değerlendirilmesi, tedarik sürekliliğinin güvence altına alınması.</span><span class="en">Optimising the modal mix across ocean, air, road and rail, evaluating trade lanes and alternative corridors, and safeguarding continuity of supply.</span></p></div>
 <div><h3><span class="tr">Satın alma ve maliyet yönetimi</span><span class="en">Procurement and cost management</span></h3>
 <p><span class="tr">Taşıma ve 3PL hizmetlerinin stratejik satın alması, ihale tasarımı ve değerlendirmesi, sözleşme yapılandırması ve toplam lojistik maliyetinin şeffaf biçimde izlenmesi.</span><span class="en">Strategic sourcing of transport and 3PL services, tender design and evaluation, contract structuring, and full transparency of total logistics cost.</span></p></div>
 <div><h3><span class="tr">Performans yönetimi</span><span class="en">Performance management</span></h3>
@@ -168,30 +181,6 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 </div>
 </section>
 
-<section class="band alt" id="ozgecmis">
-<div class="wrap">
-<h2><span class="tr">Özgeçmiş</span><span class="en">Curriculum vitae</span></h2>
-<p class="lead">Fikret Şensoy · Management and Logistics Consultant</p>
-<ol class="reg">
-<li><div class="d">2026 –</div><div><h3>Logostics Consultancy</h3><div class="r">Management and Logistics Consultant</div><p><span class="tr">Lojistik ve tedarik zinciri yönetimi alanında danışmanlık ve eğitim.</span><span class="en">Advisory and training in logistics and supply chain management.</span></p></div></li>
-<li><div class="d">2024 – 2026</div><div><h3>Azurite Logistics Türkiye</h3><div class="r">General Manager</div><p><span class="tr">Türkiye şirketini kuruluşundan itibaren yapılandırdı; IATA ve WCA üyelikleri, ISO sertifikasyonları, CRM altyapısı ve banka limitleri bu süreçte tamamlandı. Global forwarding ve Orta Koridor ticaret hatlarını aşamalı olarak devreye aldı. İlk yılında, herhangi bir armatör sözleşmesi bulunmaksızın Türkiye'de 13 bin TEU hacme ve aylık 3 milyon dolar brüt ciroya ulaşıldı. Azerbaycan operasyonları ve özmal karayolu taşımacılığı şirketi de sorumluluk alanına dahil edildi.</span><span class="en">Established the Turkish entity from inception, including IATA and WCA memberships, ISO certifications, CRM implementation and banking facilities. Developed global forwarding and Middle Corridor trade lanes in successive phases. In the first year, handled 13K TEU in Türkiye without any carrier contracts and reached USD 3M in monthly gross revenue. Responsibility was subsequently extended to Azerbaijan operations and an asset-based road transport company.</span></p></div></li>
-<li><div class="d">2023 – 2024</div><div><h3>SeGe Logistics</h3><div class="r">Partner</div><p><span class="tr">Çok modlu forwarding operasyonlarını ve tüm ürün gruplarında satış ekiplerini yapılandırdı.</span><span class="en">Established multimodal forwarding operations and sales teams across all product lines.</span></p><p class="n"><span class="tr">Yıllık ciro 20 milyon dolar · 6.000 TEU ve 2.000 ton hava kargo</span><span class="en">Annual revenue of USD 20M · 6,000 TEU and 2,000 tonnes of air freight</span></p></div></li>
-<li><div class="d">2013 – 2023</div><div><h3>CEVA Logistics Türkiye</h3><div class="r">Head of Field Sales · Head of Ocean Product · Air &amp; Ocean Pricing Manager · Ocean Product Manager · Sales Manager</div><p><span class="tr">Türkiye'de deniz ve hava ticaret hattı ile fiyatlandırma fonksiyonunu kurdu; trade lane, fiyatlandırma, kilit müşteri ve operasyon ekiplerini yapılandırdı. Uzak Doğu ithalat işini sıfırdan Türkiye'nin ilk üç oyuncusu arasına taşıdı. Son görevinde ulusal forwarding satış bütçesinden ve 54 kişilik ekipten sorumluydu.</span><span class="en">Established the ocean and air trade lane and pricing function in Türkiye, together with the trade lane, pricing, key account and operations teams. Developed the Far East import business from a standing start into one of the top three in Türkiye. In his final role, held responsibility for the national forwarding sales budget and a team of 54.</span></p><p><span class="tr">İki global hazır giyim perakendecisi için çok tedarikçili konsolidasyon ve cross-dock programlarını yönetti; ikinci programı 2015 yılında kurdu. Global bir otomotiv üreticisinin ABD–Türkiye deniz taşımalarını ve tüm hava kargo portföyünü uzun yıllar yöneten kilit müşteri ekibine liderlik etti. Pandemi döneminde ulusal ölçekte bir sağlık tedarik programını tüm taşıma modlarında yürüttü: 17 charter uçuş, yaklaşık 800 konteyner ve 600 tır ile varış ülkesinde depolama ve dağıtım.</span><span class="en">Managed multi-supplier consolidation and cross-dock programmes for two global fashion retailers, establishing the second in 2015. Led the key account team responsible for a global automotive manufacturer's US–Türkiye ocean freight and its entire air freight portfolio over several years. During the pandemic, delivered a national-scale healthcare supply programme across all modes: 17 charter flights, approximately 800 containers and 600 trucks, including storage and distribution in the destination country.</span></p><p class="n"><span class="tr">Deniz hacmi 3 bin TEU'dan 70 bin TEU'ya · IATA Türkiye sıralaması 43'ten 7'ye · yıllık 8.000 karayolu sevkiyatı</span><span class="en">Ocean volume grown from 3K to 70K TEU · IATA ranking in Türkiye improved from 43rd to 7th · 8,000 road shipments per year</span></p></div></li>
-<li><div class="d">2012 – 2013</div><div><h3>FMS</h3><div class="r">Business Development Manager</div></div></li>
-<li><div class="d">2010 – 2012</div><div><h3>CEVA Logistics Türkiye</h3><div class="r">Ocean Product Assistant Manager</div><p><span class="tr">Deniz yolu operasyonları ve fiyatlandırma.</span><span class="en">Ocean freight operations and pricing.</span></p></div></li>
-<li><div class="d">2008 – 2010</div><div><h3>CSAV</h3><div class="r">Sales Executive</div></div></li>
-<li><div class="d">2002 – 2008</div><div><h3>MSC</h3><div class="r">Sales Executive</div></div></li>
-<li><div class="d">2000 – 2002</div><div><h3>Arkas</h3><div class="r">Sales Executive</div><p><span class="tr">Müşteri segmentasyonunu ve hasar sürecinden operasyona uçtan uca CRM modülünü kurgulayan kurucu ekipte yer aldı.</span><span class="en">Part of the founding team that shaped customer segmentation and the end-to-end CRM module, from claims to operations.</span></p></div></li>
-<li><div class="d">1996 – 2000</div><div><h3>Türkiye İş Bankası</h3><div class="r">LC Specialist</div><p><span class="tr">Akreditif işlemleri ve dış ticaret finansmanı.</span><span class="en">Documentary credits and trade finance.</span></p></div></li>
-</ol>
-<div class="facts">
-<div><h4><span class="tr">Eğitim</span><span class="en">Education</span></h4><p><span class="tr">İstanbul Üniversitesi Siyasal Bilgiler Fakültesi, İktisat, 1993–1997</span><span class="en">Istanbul University, Faculty of Political Science, Economics, 1993–1997</span></p></div>
-<div><h4><span class="tr">Diller</span><span class="en">Languages</span></h4><p><span class="tr">Türkçe (ana dil), İngilizce (akıcı)</span><span class="en">Turkish (native), English (fluent)</span></p></div>
-<div><h4><span class="tr">Modlar</span><span class="en">Modes</span></h4><p><span class="tr">Deniz, hava, karayolu, demiryolu, proje yükleri</span><span class="en">Ocean, air, road, rail, project cargo</span></p></div>
-</div>
-</div>
-</section>
-
 <section class="band" id="iletisim">
 <div class="wrap">
 <h2><span class="tr">İletişim</span><span class="en">Contact</span></h2>
@@ -199,13 +188,14 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 <div class="contact">
 <div><h4><span class="tr">E-posta</span><span class="en">E-mail</span></h4><p><a href="mailto:fikretsensoy@logostics.net">fikretsensoy@logostics.net</a></p></div>
 <div><h4><span class="tr">Telefon</span><span class="en">Telephone</span></h4><p><a href="tel:+905497749535">+90 549 774 95 35</a></p></div>
+<div><h4>LinkedIn</h4><p><a href="https://www.linkedin.com/in/fikret-%C5%9Fensoy-b8a79034/">Fikret Şensoy</a></p></div>
 <div><h4><span class="tr">Ofis adresi</span><span class="en">Office address</span></h4><p>Brandium Residence R5 Blok, Kat:7 D:48<br>Küçükbakkalköy Mah. Dereboyu Cad. No:3A<br>34750 Ataşehir / İstanbul, Türkiye</p></div>
 </div>
 </div>
 </section>
 
 <footer>
-<div class="wrap"><span>© 2026 Logostics Consultancy · Fikret Şensoy</span><i>Order in Motion</i></div>
+<div class="wrap"><span>© 2026 Logostics Consultancy · Fikret Şensoy</span><span><a href="https://www.linkedin.com/in/fikret-%C5%9Fensoy-b8a79034/">LinkedIn</a> · <i>Order in Motion</i></span></div>
 </footer>
 
 <script>
@@ -218,6 +208,8 @@ btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false'));
 try{localStorage.setItem('lg-lang',l)}catch(e){}
 }
 btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+const dd=document.querySelector('.dd'),ddb=document.querySelector('.ddb');
+if(dd){ddb.addEventListener('click',()=>{const o=dd.classList.toggle('open');ddb.setAttribute('aria-expanded',o)});document.addEventListener('click',e=>{if(!dd.contains(e.target)){dd.classList.remove('open');ddb.setAttribute('aria-expanded','false')}});dd.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>dd.classList.remove('open')));}
 let saved=null;try{saved=localStorage.getItem('lg-lang')}catch(e){}
 if(saved==='en'||saved==='tr')setLang(saved);
 }
