@@ -94,6 +94,24 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 .anim #hizmetler .svc>div.grow h3::after{transform:scale(1)}
 .anim #hizmetler .svc>div.grow h3 span{opacity:1}
 .anim #hizmetler .svc>div.grow p{opacity:1;transform:none}
+.feat{border:1px solid var(--line);background:var(--bg2);border-radius:6px;padding:clamp(24px,4vw,48px);margin:28px 0 56px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,4vw,64px)}
+.feat .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600;margin:0 0 10px}
+.feat h3{font:600 clamp(26px,3vw,34px)/1.15 'Cormorant Garamond',Georgia,serif;margin:0 0 14px}
+.feat p{color:var(--soft);margin:0 0 14px;line-height:1.7}
+.feat h4{font:600 19px/1.2 'Cormorant Garamond',Georgia,serif;margin:26px 0 10px;color:var(--ink)}
+.feat ul.marks{list-style:none;margin:0;padding:0}
+.feat ul.marks li{color:var(--soft);padding:10px 0;border-top:1px solid var(--line);line-height:1.6}
+.feat ul.marks li b{color:var(--ink);font-weight:600}
+.journey{list-style:none;margin:6px 0 0;padding:0 0 0 22px;position:relative}
+.journey::before{content:"";position:absolute;left:3px;top:8px;bottom:8px;width:1px;background:var(--ink)}
+.journey li{position:relative;padding:0 0 22px}
+.journey li::before{content:"";position:absolute;left:-22px;top:7px;width:7px;height:7px;border-radius:50%;background:var(--ink)}
+.journey .k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.journey b{display:block;font:600 20px/1.25 'Cormorant Garamond',Georgia,serif;color:var(--ink);margin:2px 0 4px}
+.journey span.d{display:block;color:var(--soft);line-height:1.6}
+.bespoke{grid-column:1/-1;border-top:1px solid var(--line);padding-top:22px;margin:0}
+.bespoke p{margin:0;color:var(--ink);line-height:1.7;max-width:880px}
+@media(max-width:820px){.feat{grid-template-columns:1fr}}
 @media(max-width:600px){.reg li{grid-template-columns:1fr}.reg .d{padding:0}nav .wrap{row-gap:0}nav .links{order:3;width:100%;gap:0 16px;padding-bottom:4px}nav .links a,.ddb{padding:8px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -154,6 +172,32 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 <div class="wrap">
 <h2><span class="tr">Eğitim programları</span><span class="en">Training programmes</span></h2>
 <p class="lead"><span class="tr">Ticari ve operasyonel ekipler için, gerçek sevkiyat, ihale ve müşteri müzakerelerine dayanan uygulamalı programlar.</span><span class="en">Practical programmes for commercial and operational teams, grounded in actual shipments, tenders and client negotiations.</span></p>
+<div class="feat">
+<div>
+<p class="eyebrow"><span class="tr">Program demosu · B2B satış</span><span class="en">Programme demo · B2B sales</span></p>
+<h3>The Chief</h3>
+<p><span class="tr">Aşağıda, kapsamlı bir programın yalnızca ana hatları örnek olarak yer almaktadır. Program deneyimli B2B satışçılar içindir. Çıkış noktası şudur: Satışçı teklifinin arkasındaki işi bilmediğinde elindeki tek argüman fiyat olur. Bir satış programı olarak kurgulanmış olsa da bu sitede anlatılan disiplinlerin tamamına dayanır: operasyon, satın alma, fiyatlandırma ve kârlılık, organizasyon ve performans.</span><span class="en">What follows is an outline of one comprehensive programme, shown as an example. It is designed for experienced B2B salespeople. Its starting point is that when a salesperson does not know the business behind the offer, price becomes the only argument left. Although framed as a sales programme, it draws on every discipline described across this site: operations, procurement, pricing and profitability, organisation and performance.</span></p>
+<h4><span class="tr">Programı farklı kılan</span><span class="en">What distinguishes the programme</span></h4>
+<ul class="marks">
+<li><span class="tr"><b>Satışçının kendisine hitap eder.</b> On yılı aşkın deneyime sahip satış profesyonelleri için tasarlanmıştır; insan kaynakları ya da yönetim sunumu değildir.</span><span class="en"><b>Addressed to the salesperson.</b> Designed for sales professionals with more than ten years of experience, not as a briefing for HR or management.</span></li>
+<li><span class="tr"><b>Satış, operasyon ve satın almayı birlikte ele alır.</b> Satışı, operasyonun taban olduğu bir üçgenin parçası olarak işler.</span><span class="en"><b>Sales, operations and procurement as one.</b> Sales is treated as one side of a triangle whose base is operations.</span></li>
+<li><span class="tr"><b>Zanaat geleneğine dayanır.</b> Ticari pratiği Ahilik'teki çıraklık, kalfalık ve ustalık geleneği ve klasik düşünceyle birlikte okur.</span><span class="en"><b>Rooted in the tradition of craft.</b> Commercial practice is read alongside the apprentice, journeyman and master tradition of the Ahi guilds and classical thought.</span></li>
+<li><span class="tr"><b>Her bölüm bir öz değerlendirmeyle kapanır.</b> Katılımcı her bölümün sonunda kendi durumunu bir ayna ve karne üzerinden ölçer.</span><span class="en"><b>Each chapter closes with a self-assessment.</b> At the end of every chapter, participants measure where they stand through a mirror and a scorecard.</span></li>
+</ul>
+</div>
+<div>
+<h4 style="margin-top:0"><span class="tr">Yolculuk</span><span class="en">The journey</span></h4>
+<ol class="journey">
+<li><span class="k"><span class="tr">Bölüm 1</span><span class="en">Chapter 1</span></span><b><span class="tr">Kendimi tanıyor muyum?</span><span class="en">Do I know myself?</span></b><span class="d"><span class="tr">Satışçının neden fiyat sattığı, mesleğin ardındaki zanaat ve çıraklık, dört filtre ve on iki alanda puanlanan kişisel bilgi haritası.</span><span class="en">Why salespeople end up selling price, the craft and apprenticeship behind the profession, four filters and a personal knowledge map scored across twelve areas.</span></span></li>
+<li><span class="k"><span class="tr">Bölüm 2</span><span class="en">Chapter 2</span></span><b><span class="tr">Şirketimi tanıyor muyum?</span><span class="en">Do I know my company?</span></b><span class="d"><span class="tr">Satışçının, çıktıya dokunan ve sonucun sorumluluğunu taşıyan kişi olarak kendi şirketini ne ölçüde bildiği.</span><span class="en">How well the salesperson knows their own company, as the person who touches the output and carries responsibility for the result.</span></span></li>
+<li><span class="k"><span class="tr">Bölüm 3</span><span class="en">Chapter 3</span></span><b><span class="tr">Pazarı biliyor muyum?</span><span class="en">Do I know the market?</span></b><span class="d"><span class="tr">Tedarikçiler, rakipler ve müşteriler; portföyün gerçek potansiyelini ortaya koyan beş gruplu müşteri segmentasyonu.</span><span class="en">Suppliers, competitors and customers, with a five-group customer segmentation that reveals the real potential of a portfolio.</span></span></li>
+<li><span class="k"><span class="tr">Bölüm 4</span><span class="en">Chapter 4</span></span><b><span class="tr">Müşterinin karşısında</span><span class="en">In front of the customer</span></b><span class="d"><span class="tr">Hedef seçimi ve pipeline, ziyaret hazırlığı, muhatabı tanımak, masadaki görüşme ve karar.</span><span class="en">Target selection and pipeline, visit preparation, understanding the counterpart, the meeting itself and the decision.</span></span></li>
+<li><span class="k"><span class="tr">Kapanış</span><span class="en">Closing</span></span><b><span class="tr">Uzun yol</span><span class="en">The long road</span></b><span class="d"><span class="tr">Ustalığın kısa yolu olmadığı üzerine bir değerlendirme ve programın açıldığı soruya dönüş.</span><span class="en">A reflection on mastery as a long road with no shortcut, returning to the question with which the programme opens.</span></span></li>
+</ol>
+</div>
+<div class="bespoke"><p><span class="tr">Her program, ilgili şirketin pazarı, müşterileri, ekibi ve satış ile operasyonun birlikte nasıl çalıştığı anlaşıldıktan sonra o şirkete özel olarak hazırlanır. Tek günlük bir sınıf eğitimi olarak değil, her aşaması bir öncekinin üzerine kurulan bir yolculuk olarak yürütülür.</span><span class="en">Each programme is prepared specifically for the company concerned, once its market, its customers, its people and the way its sales and operations work together are understood. It is delivered not as a single day in the classroom, but as a journey in which each stage builds on the one before.</span></p></div>
+</div>
+<h3 class="intro" style="font-size:clamp(24px,2.6vw,30px);margin:0 0 24px"><span class="tr">Diğer programlar</span><span class="en">Further programmes</span></h3>
 <div class="svc">
 <div><h3><span class="tr">Satış</span><span class="en">Sales</span></h3><p><span class="tr">Lojistikte danışmanlık odaklı satış, müşteri planlaması, ihale yönetimi, ticari müzakere ve kilit müşteri yönetimi.</span><span class="en">Consultative selling in logistics, account planning, tender management, commercial negotiation and key account management.</span></p></div>
 <div><h3><span class="tr">Dış ticaret</span><span class="en">Foreign trade</span></h3><p><span class="tr">Incoterms, ödeme şekilleri, akreditif ve dış ticaret belgeleri ile bunların lojistik kararlara etkisi.</span><span class="en">Incoterms, payment terms, documentary credits and trade documentation, and their implications for logistics decisions.</span></p></div>
