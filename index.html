@@ -32,7 +32,7 @@ nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,t
 nav .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:12px max(5vw,18px)}
 .brand{font:600 20px/1 'Cormorant Garamond',Georgia,serif;letter-spacing:3px;text-decoration:none;margin-inline-end:auto}
 .brand b{font-weight:600;color:#a3a9b4}
-nav .links{display:flex;gap:18px;flex-wrap:wrap}
+nav nav .wrap{row-gap:0}nav .links{order:3;width:100%;gap:0 16px;padding-bottom:4px}nav .links a,.ddb{padding:8px 0}}display:flex;gap:18px;flex-wrap:wrap}
 nav .links a{font-size:14px;text-decoration:none;color:var(--soft);padding:10px 0}
 nav .links a:hover{color:var(--ink)}
 .dd{position:relative}
@@ -85,7 +85,7 @@ h2{font:600 clamp(30px,3.4vw,40px)/1.1 'Cormorant Garamond',Georgia,serif;margin
 footer{border-top:1px solid var(--line);padding:28px max(5vw,18px);font-size:13px;color:var(--mute)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var(--soft)}
-@media(max-width:600px){.reg li{grid-template-columns:1fr}.reg .d{padding:0}nav .links{display:none}}
+@media(max-width:600px){.reg li{grid-template-columns:1fr}.reg .d{padding:0}nav .wrap{row-gap:0}nav .links{order:3;width:100%;gap:0 16px;padding-bottom:4px}nav .links a,.ddb{padding:8px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
