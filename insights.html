@@ -89,7 +89,6 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 .post time{font-size:14px;color:var(--mute);font-variant-numeric:tabular-nums}
 .post h3{font:600 26px/1.2 'Cormorant Garamond',Georgia,serif;margin:6px 0 14px}
 .post .body{color:var(--soft);white-space:pre-line;max-width:760px}
-.post .body.clip{max-height:9.6em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
 .post .acts{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:14px}
 .post button{font:500 14px Inter,sans-serif;background:none;border:0;padding:10px 0;color:var(--ink);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .post a{padding:10px 0;display:inline-block}
@@ -122,7 +121,7 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 <section class="band">
 <div class="wrap">
 <h2><span class="tr">Yazılar</span><span class="en">Insights</span></h2>
-<p class="lead"><span class="tr">LinkedIn'de paylaşılan pazar ve sektör değerlendirmeleri, tarih sırasıyla. Yazılar İngilizcedir.</span><span class="en">Market and industry commentary published on LinkedIn, in date order.</span></p>
+<p class="lead"><span class="tr">İlk olarak LinkedIn'de yayımlanan pazar ve sektör değerlendirmeleri. Yazılar İngilizcedir.</span><span class="en">Market and industry commentary, originally published on LinkedIn.</span></p>
 <div id="posts"></div>
 <p style="margin-top:28px"><a href="https://www.linkedin.com/in/fikret-%C5%9Fensoy-b8a79034/"><span class="tr">Tüm paylaşımlar LinkedIn'de</span><span class="en">All posts on LinkedIn</span></a></p>
 </div>
@@ -153,11 +152,12 @@ if(saved==='en'||saved==='tr')setLang(saved);
 const box=document.getElementById('posts');
 const fmt=d=>{const [y,m,dd]=d.split('-').map(Number);return new Date(Date.UTC(y,m-1,dd)).toLocaleDateString(document.documentElement.dataset.lang==='tr'?'tr-TR':'en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})};
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const first=t=>t.split(/\n\s*\n/)[0];
 function render(){
-box.innerHTML=(window.POSTS||[]).map((p,i)=>`<article class="post"><time datetime="${p.date}">${fmt(p.date)}</time><h3>${esc(p.title)}</h3><div class="body clip" id="b${i}">${esc(p.text)}</div><div class="acts"><button type="button" data-i="${i}" aria-expanded="false" aria-controls="b${i}"><span class="tr">Devamını oku</span><span class="en">Read more</span></button><a href="${p.url}"><span class="tr">LinkedIn'de görüntüle</span><span class="en">View on LinkedIn</span></a></div></article>`).join('');
+box.innerHTML=(window.POSTS||[]).map((p,i)=>`<article class="post"><time datetime="${p.date}">${fmt(p.date)}</time><h3>${esc(p.title)}</h3><div class="body" id="b${i}">${esc(first(p.text))}</div><div class="acts"><button type="button" data-i="${i}" aria-expanded="false" aria-controls="b${i}"><span class="tr">Devamını oku</span><span class="en">Read more</span></button><a href="${p.url}"><span class="tr">LinkedIn'de görüntüle</span><span class="en">View on LinkedIn</span></a></div></article>`).join('');
 }
 render();
-box.addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(!b)return;const el=document.getElementById('b'+b.dataset.i);const open=el.classList.toggle('clip')===false;b.setAttribute('aria-expanded',open);b.innerHTML=open?'<span class="tr">Daralt</span><span class="en">Show less</span>':'<span class="tr">Devamını oku</span><span class="en">Read more</span>'});
+box.addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(!b)return;const el=document.getElementById('b'+b.dataset.i);const p=window.POSTS[b.dataset.i];const open=b.getAttribute('aria-expanded')!=='true';el.textContent=open?p.text:first(p.text);b.setAttribute('aria-expanded',open);b.innerHTML=open?'<span class="tr">Daralt</span><span class="en">Show less</span>':'<span class="tr">Devamını oku</span><span class="en">Read more</span>'});
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setTimeout(render,0)));
 }
 </script>
