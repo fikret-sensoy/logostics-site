@@ -85,6 +85,15 @@ h2{font:600 clamp(30px,3.4vw,40px)/1.1 'Cormorant Garamond',Georgia,serif;margin
 footer{border-top:1px solid var(--line);padding:28px max(5vw,18px);font-size:13px;color:var(--mute)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var(--soft)}
+.anim #hizmetler .svc>div h3{border-top-color:transparent;position:relative}
+.anim #hizmetler .svc>div h3::before{content:"";position:absolute;left:0;top:-1px;width:100%;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.25,.7,.2,1) calc(var(--d,0s) + .2s)}
+.anim #hizmetler .svc>div h3::after{content:"";position:absolute;left:-3px;top:-4px;width:7px;height:7px;border-radius:50%;background:var(--ink);transform:scale(0);transition:transform .35s ease var(--d,0s)}
+.anim #hizmetler .svc>div h3 span{opacity:0;transition:opacity .8s ease calc(var(--d,0s) + .75s)}
+.anim #hizmetler .svc>div p{opacity:0;transform:translateY(8px);transition:opacity .8s ease calc(var(--d,0s) + .95s),transform .8s ease calc(var(--d,0s) + .95s)}
+.anim #hizmetler .svc>div.grow h3::before{transform:scaleX(1)}
+.anim #hizmetler .svc>div.grow h3::after{transform:scale(1)}
+.anim #hizmetler .svc>div.grow h3 span{opacity:1}
+.anim #hizmetler .svc>div.grow p{opacity:1;transform:none}
 @media(max-width:600px){.reg li{grid-template-columns:1fr}.reg .d{padding:0}nav .wrap{row-gap:0}nav .links{order:3;width:100%;gap:0 16px;padding-bottom:4px}nav .links a,.ddb{padding:8px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -125,7 +134,6 @@ footer i{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var
 <h2><span class="tr">Lojistik fonksiyonuna yapı ve disiplin</span><span class="en">Structure and discipline for the logistics function</span></h2>
 <p class="lead"><span class="tr">Logostics Consultancy, üretici, ticaret ve lojistik şirketlerinin yönetimlerine lojistik operasyonlarının stratejisi, organizasyonu, maliyeti ve performansı konusunda danışmanlık sunar. Yeni model şirketin işleyişine yerleşene kadar uygulama sürecinde de yönetimin yanında yer alır.</span><span class="en">Logostics Consultancy advises the executive teams of manufacturers, trading houses and logistics providers on the strategy, organisation, cost and performance of their logistics operations, and remains engaged through implementation until the new model is embedded in the business.</span></p>
 <h3 class="intro" style="font-size:clamp(24px,2.6vw,30px);margin-top:8px"><span class="tr">Hizmetler</span><span class="en">Services</span></h3>
-<p class="lead"><span class="tr">Lojistik kararları sevkiyat bazında alınır; ancak toplam etkileri kârlılığı, işletme sermayesini ve müşteri hizmet seviyesini belirler. Bu nedenle her çalışma, bütünün değerlendirilmesiyle başlar.</span><span class="en">Logistics decisions are taken shipment by shipment, yet their cumulative effect determines margin, working capital and service levels. Every engagement therefore begins with an assessment of the whole.</span></p>
 <div class="svc">
 <div><h3><span class="tr">Lojistik strateji</span><span class="en">Logistics strategy</span></h3>
 <p><span class="tr">Ticari hedeflerle uyumlu bir lojistik işletme modelinin tanımlanması, şirket içinde yürütülecek ve dış kaynağa verilecek faaliyetlerin belirlenmesi, her pazar için hizmet modelinin oluşturulması.</span><span class="en">Defining a logistics operating model aligned with commercial objectives, including make-or-buy decisions and the service model for each market.</span></p></div>
@@ -220,6 +228,17 @@ if(dd){ddb.addEventListener('click',()=>{const o=dd.classList.toggle('open');ddb
 let saved=null;try{saved=localStorage.getItem('lg-lang')}catch(e){}
 if(saved==='en'||saved==='tr')setLang(saved);
 }
+</script>
+<script>
+(function(){
+if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+document.documentElement.classList.add('anim');
+var items=[].slice.call(document.querySelectorAll('#hizmetler .svc>div'));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('grow');io.unobserve(e.target);}});},{threshold:.2});
+function arm(){items.forEach(function(el){el.classList.remove('grow');var g=el.parentElement,cols=getComputedStyle(g).gridTemplateColumns.split(' ').length||1,i=[].indexOf.call(g.children,el);el.style.setProperty('--d',((i%cols)*0.22)+'s');io.observe(el);});}
+window.addEventListener('hashchange',function(){if(location.hash==='#hizmetler')requestAnimationFrame(arm);});
+arm();
+})();
 </script>
 </body>
 </html>
